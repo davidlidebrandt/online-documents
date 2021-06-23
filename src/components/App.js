@@ -83,10 +83,11 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-main-bg bg-cover bg-center">
+    <>
+    <div className="min-h-screen bg-main-bg bg-cover bg-center grid relative place-items-center grid-cols-4">
       <BrowserRouter>
         <Header />
-        <button onClick={logOut}>Log out</button>
+      
         <Switch>
           <Route exact path="/">
             <Home />
@@ -98,9 +99,11 @@ function App() {
             <SignUp handleSubmit={handleSignUpSubmit} email={emailSignUp} password={passwordSignUp}/>
           </Route>
         </Switch>
-        <Footer />
+        
       </BrowserRouter>
     </div>
+    <Footer />
+    </>
   );
 }
 
