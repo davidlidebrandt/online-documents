@@ -5,27 +5,20 @@ import Home from "./Home";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp.js";
 import { useRef } from "react";
-import firebase from "firebase/app";
-import "firebase/auth";
+import { AuthProvider } from "../contexts/AuthContext"
+import { useAuth } from "../contexts/AuthContext.js";
+import { auth } from "../firebase/Firebase"
 
 
-const config = {
-  apiKey: "AIzaSyAkeLkUjtpL8m1ROJlCZi3SghimoH4SDTk",
-  authDomain: "online-documents-8aa85.firebaseapp.com",
-  projectId: "online-documents-8aa85",
-  storageBucket: "online-documents-8aa85.appspot.com",
-  messagingSenderId: "328196634102",
-  appId: "1:328196634102:web:9d2bfd40e2dab8026d83d7",
-};
 
-const app = firebase.initializeApp(config);
+
 let user;
 
 
 
-
 function App() {
-  const auth = app.auth();
+
+  const { currentUser } = useAuth();
 
   const emailSignUp = useRef();
   const passwordSignUp = useRef();
@@ -42,7 +35,7 @@ function App() {
       .then((userCredential) => {
         // Signed in
         user = userCredential.user;
-        console.log(user);
+
         // ...
       })
       .catch((error) => {
@@ -62,7 +55,7 @@ function App() {
       .then((userCredential) => {
         // Signed in
         user = userCredential.user;
-        console.log(user);
+        console.log(user)
         // ...
       })
       .catch((error) => {
@@ -82,12 +75,21 @@ function App() {
     });
   }
 
+  function User(props) {
+    return (
+      <div>User :{props.currentUser} </div>
+    )
+  }
+  
+
   return (
     <>
-    <div className="min-h-screen bg-main-bg bg-cover bg-center grid relative place-items-center grid-cols-4">
+    <AuthProvider>
+    <div className="min-h-screen bg-main-bg bg-cover bg-center">
       <BrowserRouter>
         <Header />
-      
+        <div className="grid grid-cols-12 place-content-center h-screen">
+          <User currentUser={JSON.stringify(currentUser)}/>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -99,10 +101,11 @@ function App() {
             <SignUp handleSubmit={handleSignUpSubmit} email={emailSignUp} password={passwordSignUp}/>
           </Route>
         </Switch>
-        
+        </div>
       </BrowserRouter>
     </div>
     <Footer />
+    </AuthProvider>
     </>
   );
 }

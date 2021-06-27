@@ -2,10 +2,10 @@
 
 function Header() {
     return (
-      <div className="col-span-4 text-blue-500 absolute top-0 left-0">
+      <div className="text-blue-500 absolute top-0 left-0">
         <nav className="grid grid-cols-2">
             <div>
-            <h2 className="text-4xl mx-5 my-4 inline-block font-bold">Online Documents</h2>
+            <Link to="/"><h2 className="text-4xl mx-5 my-4 inline-block font-bold">Online Documents</h2></Link>
             <a href="#" className="mx-3 text-xl font-medium">Profile</a>
             <a href="#" className="mx-3 text-xl font-medium">New Document</a>
             <a href="#" className="mx-3 text-xl font-medium">Browse</a>
