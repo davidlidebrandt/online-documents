@@ -1,11 +1,14 @@
 import { Link, Redirect } from 'react-router-dom';
 import { useAuth } from "../contexts/AuthContext"
+import svg from "../images/svg.svg"
 
 function Header(props) {
     const { currentUser } = useAuth();
 
     return (
-      <div className="text-blue-500 absolute top-0 left-0">
+        
+        <>
+      <div className="hidden xl:block text-blue-500 absolute top-0 left-0">
         <nav className="grid grid-cols-2">
           <div>
             <Link to="/">
@@ -56,6 +59,18 @@ function Header(props) {
           </div>
         </nav>
       </div>
+      
+
+      <div className="w-full xl:hidden text-blue-500 absolute top-0 left-0">
+      <Link to="/">
+              <h2 className="text-4xl mx-5 my-4 inline-block font-bold">
+                Online Documents
+              </h2>
+            </Link>
+            <button className="float-right my-4 mx-5">  <img className="h-16 w-16" src={ svg } alt="Hamburger icon"></img>  </button>   
+              
+      </div>
+      </>
     );
   }
 
