@@ -69,9 +69,12 @@ function App() {
   }
 
   function User(props) {
-    return (
-      <div>User :{props.currentUser} </div>
-    )
+    if (props.currentUser) {
+      return JSON.stringify(currentUser.email)
+    }
+    else {
+      return "no logged in user"
+    }
   }
   
 
@@ -80,9 +83,9 @@ function App() {
     <AuthProvider>
     <div className="min-h-screen bg-main-bg bg-cover bg-center">
       <BrowserRouter>
-        <Header />
+        <Header logout={logOut}/>
         <div className="grid grid-cols-12 place-content-center h-screen">
-         <User currentUser={ JSON.stringify(currentUser.email) }/>
+         <User currentUser={ currentUser }/>
         <Switch>
           <Route exact path="/">
             <Home />
