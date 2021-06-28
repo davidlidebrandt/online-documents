@@ -5,9 +5,9 @@ import Home from "./Home";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp.js";
 import { useRef } from "react";
-import { AuthProvider } from "../contexts/AuthContext"
-import { useAuth } from "../contexts/AuthContext.js";
-import { auth } from "../firebase/Firebase"
+import { AuthProvider, useAuth } from "../contexts/AuthContext"
+import { stringify } from "postcss";
+
 
 
 
@@ -19,6 +19,10 @@ let user;
 function App() {
 
   const { currentUser } = useAuth();
+  const { login } = useAuth();
+  const { logout } = useAuth();
+  const { signup  } = useAuth();
+
 
   const emailSignUp = useRef();
   const passwordSignUp = useRef();
@@ -27,14 +31,10 @@ function App() {
 
   function handleSignUpSubmit(e) {
     e.preventDefault();
-    auth
-      .createUserWithEmailAndPassword(
-        emailSignUp.current.value,
-        passwordSignUp.current.value
-      )
+    signup(emailSignUp.current.value, passwordSignUp.current.value)
       .then((userCredential) => {
         // Signed in
-        user = userCredential.user;
+        console.log(currentUser)
 
         // ...
       })
@@ -46,17 +46,11 @@ function App() {
   }
 
   function handleLogInSubmit(e) {
-    e.preventDefault();
-    auth
-      .signInWithEmailAndPassword(
-        emailLogIn.current.value,
-        passwordLogIn.current.value
-      )
+  e.preventDefault();
+   login(emailLogIn.current.value, passwordLogIn.current.value)
       .then((userCredential) => {
         // Signed in
-        user = userCredential.user;
-        console.log(user)
-        // ...
+        console.log(currentUser)
       })
       .catch((error) => {
         console.log(error.code);
@@ -66,10 +60,9 @@ function App() {
   }
 
   function logOut() {
-    auth.signOut().then(() => {
+    logout().then(() => {
       console.log("Logged out")
-      user = undefined
-      console.log(user)
+      console.log(currentUser)
     }).catch((error) => {
       console.log("error")
     });
@@ -89,7 +82,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <div className="grid grid-cols-12 place-content-center h-screen">
-          <User currentUser={JSON.stringify(currentUser)}/>
+         <User currentUser={ JSON.stringify(currentUser.email) }/>
         <Switch>
           <Route exact path="/">
             <Home />
