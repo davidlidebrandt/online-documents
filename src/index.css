@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  letter-spacing: 1px;
+}
+
+.gradient-color {
+  -webkit-text-fill-color: transparent; 
+}

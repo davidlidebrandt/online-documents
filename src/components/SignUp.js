@@ -5,7 +5,7 @@ function SignUp(props) {
     return (
     
  
-      <div className="col-start-5 col-span-4">
+      <div className="col-span-10 col-start-2 md:col-span-8 md:col-start-3 xl:col-start-5 xl:col-span-4">
       <form onSubmit={props.handleSubmit} className="bg-white border-4 border-blue-300 rounded-md text-center my-12">
           <div><h3 className="text-2xl text-blue-500 font-bold my-5">Sign Up</h3></div>
           <div className="my-10 text-left mx-5 text-blue-500">

@@ -85,7 +85,6 @@ function App() {
       <BrowserRouter>
         <Header logout={logOut}/>
         <div className="grid grid-cols-12 place-content-center h-screen">
-         <User currentUser={ currentUser }/>
         <Switch>
           <Route exact path="/">
             <Home />
