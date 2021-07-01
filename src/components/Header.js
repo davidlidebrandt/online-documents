@@ -19,9 +19,7 @@ function Header(props) {
             <a href="#" className="mx-3 text-lg font-medium">
               Profile
             </a>
-            <a href="#" className="mx-3 text-lg font-medium">
-              New Document
-            </a>
+           <Link className="mx-3 text-lg font-medium" to="/docs">New Document</Link>
             <a href="#" className="mx-3 text-lg font-medium">
               Browse
             </a>
@@ -41,7 +39,7 @@ function Header(props) {
             {currentUser === null ? (
               <Link
                 to="/signup"
-                className="border border-blue-600 rounded-lg px-6 py-2 text-xl font-semibold bg-blue-400 mx-8 my-4 text-white"
+                className="rounded-lg px-6 py-2 text-xl font-semibold bg-blue-400 mx-8 my-4 text-white"
               >
                 Sign Up
               </Link>

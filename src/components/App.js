@@ -4,9 +4,10 @@ import Footer from "./Footer.js";
 import Home from "./Home";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp.js";
+import CreateDocs from "./CreateDocs.js";
 import { useRef } from "react";
 import { AuthProvider, useAuth } from "../contexts/AuthContext"
-import { stringify } from "postcss";
+
 
 
 
@@ -94,6 +95,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUp handleSubmit={handleSignUpSubmit} email={emailSignUp} password={passwordSignUp}/>
+          </Route>
+          <Route path="/docs">
+            <CreateDocs/>
           </Route>
         </Switch>
         </div>
