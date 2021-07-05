@@ -8,15 +8,6 @@ import CreateDocs from "./CreateDocs.js";
 import { useRef } from "react";
 import { AuthProvider, useAuth } from "../contexts/AuthContext"
 
-
-
-
-
-
-let user;
-
-
-
 function App() {
 
   const { currentUser } = useAuth();
@@ -30,19 +21,17 @@ function App() {
   const emailLogIn = useRef();
   const passwordLogIn = useRef();
 
+  const docText = useRef();
+
   function handleSignUpSubmit(e) {
     e.preventDefault();
     signup(emailSignUp.current.value, passwordSignUp.current.value)
       .then((userCredential) => {
-        // Signed in
         console.log(currentUser)
-
-        // ...
       })
       .catch((error) => {
         console.log(error.code);
         console.log(error.message);
-        // ..
       });
   }
 
@@ -50,13 +39,11 @@ function App() {
   e.preventDefault();
    login(emailLogIn.current.value, passwordLogIn.current.value)
       .then((userCredential) => {
-        // Signed in
         console.log(currentUser)
       })
       .catch((error) => {
         console.log(error.code);
         console.log(error.message);
-        // ..
       });
   }
 
@@ -69,15 +56,18 @@ function App() {
     });
   }
 
-  function User(props) {
-    if (props.currentUser) {
-      return JSON.stringify(currentUser.email)
-    }
-    else {
-      return "no logged in user"
-    }
-  }
-  
+function handleSave(e) {
+  e.preventDefault();
+  console.log(docText.current.value);
+}
+
+function simulateSubmitSaveDoc() {
+  document.getElementById("saveDoc").click();
+}
+
+function clearDoc() {
+  docText.current.value = ""
+}
 
   return (
     <>
@@ -97,7 +87,7 @@ function App() {
             <SignUp handleSubmit={handleSignUpSubmit} email={emailSignUp} password={passwordSignUp}/>
           </Route>
           <Route path="/docs">
-            <CreateDocs/>
+            <CreateDocs handleSave={handleSave} docText={docText} simulateSubmitSaveDoc={simulateSubmitSaveDoc} clearDoc={clearDoc}/>
           </Route>
         </Switch>
         </div>
