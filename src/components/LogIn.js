@@ -19,7 +19,7 @@ function LogIn(props) {
               <input ref={props.password} className="bg-blue-100 rounded w-full focus:outline-none focus:bg-white focus:text-black" type="password"></input>
               </div>
             <div>
-                <button className="w-4/5 m-0 border border-white rounded-lg px-6 py-3 text-xl font-semibold bg-blue-400 mx-8 my-5 text-white" type="submit">Log In</button>
+                <button className="w-4/5 m-0 border border-white rounded-lg px-6 py-3 text-xl font-semibold bg-blue-400 mx-8 my-5 text-white hover:bg-blue-100 hover:text-blue-400 hover:border-transparent" type="submit">Log In</button>
             </div>
             <div>
                 <p className="text-white py-8">Don't have an account? <Link className="underline" to="/signup" >Sign up</Link></p>

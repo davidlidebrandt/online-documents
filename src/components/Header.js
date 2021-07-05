@@ -16,11 +16,11 @@ function Header(props) {
                 Online Docs
               </h2>
             </Link>
-            <a href="#" className="mx-3 text-lg font-medium">
+            <a href="#" className="mx-3 text-lg font-medium hover:text-blue-300">
               Profile
             </a>
-           <Link className="mx-3 text-lg font-medium" to="/docs">New Document</Link>
-            <a href="#" className="mx-3 text-lg font-medium">
+           <Link className="mx-3 text-lg font-medium hover:text-blue-300" to="/docs">New Document</Link>
+            <a href="#" className="mx-3 text-lg font-medium hover:text-blue-300">
               Browse
             </a>
           </div>
@@ -28,7 +28,7 @@ function Header(props) {
             {currentUser === null ? (
               <Link
                 to="/login"
-                className="border border-blue-600 rounded-lg px-6 py-2 text-xl font-semibold bg-white mx-8 my-4"
+                className="border border-blue-600 rounded-lg px-6 py-2 text-xl font-semibold bg-white mx-8 my-4 hover:bg-blue-100 hover:text-blue-400 hover:border-transparent"
               >
                 Log In
               </Link>
@@ -39,7 +39,7 @@ function Header(props) {
             {currentUser === null ? (
               <Link
                 to="/signup"
-                className="rounded-lg px-6 py-2 text-xl font-semibold bg-blue-400 mx-8 my-4 text-white"
+                className="rounded-lg px-6 py-2 text-xl font-semibold bg-blue-400 mx-8 my-4 text-white hover:bg-blue-100 hover:text-blue-400 hover:border-transparent"
               >
                 Sign Up
               </Link>
