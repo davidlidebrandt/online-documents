@@ -7,6 +7,8 @@ import SignUp from "./SignUp.js";
 import CreateDocs from "./CreateDocs.js";
 import { useRef } from "react";
 import { AuthProvider, useAuth } from "../contexts/AuthContext"
+import PrivateRoute from "./PrivateRoute.js";
+import BrowseDocs from "./BrowseDocs.js";
 
 function App() {
 
@@ -78,7 +80,7 @@ function clearDoc() {
         <div className="grid grid-cols-12 place-content-center h-screen">
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home logout={logOut}/>
           </Route>
           <Route path="/login">
             <LogIn handleSubmit={handleLogInSubmit} email={emailLogIn} password={passwordLogIn}/>
@@ -89,6 +91,7 @@ function clearDoc() {
           <Route path="/docs">
             <CreateDocs handleSave={handleSave} docText={docText} simulateSubmitSaveDoc={simulateSubmitSaveDoc} clearDoc={clearDoc}/>
           </Route>
+          <PrivateRoute component={BrowseDocs} path="/browsedocs" exact />
         </Switch>
         </div>
       </BrowserRouter>

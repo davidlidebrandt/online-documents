@@ -20,9 +20,14 @@ function Header(props) {
               Profile
             </a>
            <Link className="mx-3 text-lg font-medium hover:text-blue-300" to="/docs">New Document</Link>
-            <a href="#" className="mx-3 text-lg font-medium hover:text-blue-300">
-              Browse
-            </a>
+           {currentUser === null ? (
+               null
+            ) : (
+                <Link className="mx-3 text-lg font-medium hover:text-blue-300" to="/browsedocs">
+                Browse
+              </Link>
+            )}
+          
           </div>
           <div className="float-right text-right my-6">
             {currentUser === null ? (
@@ -49,7 +54,7 @@ function Header(props) {
             {currentUser ? (
               <button
                 onClick={props.logout}
-                className="border border-blue-600 rounded-lg px-5 py-3 text-xl font-semibold bg-blue-400 mx-8 my-4 text-white"
+                className="rounded-lg px-6 py-2 text-xl font-semibold bg-blue-400 mx-8 text-white hover:bg-blue-100 hover:text-blue-400 hover:border-transparent"
               >
                 Log out
               </button>
