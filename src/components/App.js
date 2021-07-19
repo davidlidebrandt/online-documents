@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { AuthProvider, useAuth } from "../contexts/AuthContext"
 import PrivateRoute from "./PrivateRoute.js";
 import BrowseDocs from "./BrowseDocs.js";
+import { db } from "../firebase/Firebase"
 
 function App() {
 
@@ -16,7 +17,6 @@ function App() {
   const { login } = useAuth();
   const { logout } = useAuth();
   const { signup  } = useAuth();
-
 
   const emailSignUp = useRef();
   const passwordSignUp = useRef();
@@ -60,7 +60,17 @@ function App() {
 
 function handleSave(e) {
   e.preventDefault();
-  console.log(docText.current.value);
+  const userId = currentUser.uid;
+  console.log(userId)
+  db.collection("docs").doc(userId).set({
+    text: docText.current.value
+})
+.then((docRef) => {
+    console.log("Document written");
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
 }
 
 function simulateSubmitSaveDoc() {
@@ -93,6 +103,7 @@ function clearDoc() {
           </Route>
           <PrivateRoute component={BrowseDocs} path="/browsedocs" exact />
         </Switch>
+        
         </div>
       </BrowserRouter>
     </div>
