@@ -21,9 +21,9 @@ function Header(props) {
                null
             ) : (
                 <>
-                <a href="#" className="mx-3 text-lg font-medium hover:text-blue-300">
+                <Link to="/" className="mx-3 text-lg font-medium hover:text-blue-300">
                 Profile
-              </a>
+              </Link>
              <Link className="mx-3 text-lg font-medium hover:text-blue-300" to="/docs">New Document</Link>
                 <Link className="mx-3 text-lg font-medium hover:text-blue-300" to="/browsedocs">
                 Browse

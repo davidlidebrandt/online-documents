@@ -10,7 +10,7 @@ function Home(props) {
         <h3 className="my-3 font-bold text-5xl bg-white bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 bg-clip-text gradient-color">Online Docs</h3>
         </div>
         
-        <div className="col-span-10 col-start-2 md:col-start-4 md:col-span-6 xl:col-start-5 xl:col-span-4 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300  mg-auto my-12 inline-block border text-center rounded border-blue-600 text-white text-xl font-medium">
+        <div className="col-span-10 col-start-2 md:col-start-4 md:col-span-6 xl:col-start-5 xl:col-span-4 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300  mg-auto my-12 inline-block border text-center rounded text-white text-xl font-medium">
   
           <p className="py-12 px-4 mx-8 my-8 text-blue-400  bg-blue-50 rounded-lg transform -rotate-2">Welcome to Online Docs, here you can create, save and access text documents online from any device.</p>
           
@@ -36,7 +36,7 @@ function Home(props) {
      
           
           <div className="my-8 p-4">
-              <Link className="underline">Help</Link>
+              <button className="underline hover:text-blue-500">Help</button>
           </div>
         </div>
         </>
