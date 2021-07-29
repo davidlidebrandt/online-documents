@@ -18,14 +18,14 @@ function Home(props) {
             
           {currentUser === null ? (
                 <div className="px-20 my-16">
-                <Link to="/login" className="block m-0 border-2 border-white rounded-2xl px-6 py-4 text-xl font-bold bg-blue-400 mx-8 my-5 text-white hover:bg-blue-100 hover:text-blue-400 hover:border-transparent">Log In</Link>
-                <Link to="/signup" className="block m-0 border border-white rounded-2xl px-6 py-4 text-xl font-bold bg-white mx-8 my-5 text-blue-400 hover:bg-blue-100 hover:text-blue-400 hover:border-transparent">Sign Up</Link>
+                <Link to="/login" className="block m-0 border-2 border-white rounded-2xl px-6 py-4 text-xl font-bold bg-blue-400 mx-8 my-5 text-white hover:bg-blue-100 hover:text-blue-400 hover:border-transparent transition-all duration-700">Log In</Link>
+                <Link to="/signup" className="block m-0 border border-white rounded-2xl px-6 py-4 text-xl font-bold bg-white mx-8 my-5 text-blue-400 hover:bg-blue-100 hover:text-blue-400 hover:border-transparent transition-all duration-700">Sign Up</Link>
                 </div>
             ) : (
                 <div className="px-20 my-16">
                 <button
                 onClick={props.logout}
-                className="m-0 border border-white rounded-lg px-6 py-3 text-xl font-bold bg-white mx-8 my-5 text-blue-400 hover:bg-blue-100 hover:text-blue-400 hover:border-transparent"
+                className="m-0 border border-white rounded-lg px-6 py-3 text-xl font-bold bg-white mx-8 my-5 text-blue-400 hover:bg-blue-100 hover:text-blue-400 hover:border-transparent transition-all duration-700"
               >
                 Log out
               </button>
@@ -37,7 +37,7 @@ function Home(props) {
      
           
           <div className="my-4 p-4">
-              <button className="underline text-xl font-bold hover:text-blue-500">Help</button>
+              <button className="underline text-xl font-bold hover:text-blue-200 transition-all duration-700">Help</button>
           </div>
         </div>
         </>
