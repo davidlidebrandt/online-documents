@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Home from "./Home";
@@ -85,11 +85,11 @@ function clearDoc() {
     <>
     <AuthProvider>
     <div className="min-h-screen bg-main-bg bg-cover bg-center">
-      <BrowserRouter>
+      <HashRouter>
         <Header logout={logOut}/>
         <div className="grid grid-cols-12 place-content-center h-screen">
         <Switch>
-          <Route exact path="">
+          <Route exact path="/">
             <Home logout={logOut}/>
           </Route>
           <Route path="/login">
@@ -105,7 +105,7 @@ function clearDoc() {
         </Switch>
         
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
     <Footer />
     </AuthProvider>
