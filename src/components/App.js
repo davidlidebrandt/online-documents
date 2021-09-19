@@ -89,7 +89,7 @@ function clearDoc() {
         <Header logout={logOut}/>
         <div className="grid grid-cols-12 place-content-center h-screen">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="">
             <Home logout={logOut}/>
           </Route>
           <Route path="/login">
